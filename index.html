@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>AngularJS Shopping List</title>
+		<link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	</head>
+	<body>
+		<main>
+			<section ng-controller="ShoppingListCtrl">
+				<header>Shopping List - {{list.count}} Items</header>
+				<div class="add-controls">
+					<input type="text" placeholder="Add new item..." ng-model="newItem.name" />
+					<button ng-click="addItem(newItem.name)">Add</button>
+				</div>
+				<ul class="list-item-wrap">
+					<li class="list-item" ng-repeat="item in list.items track by $index" ng-class="{completed: item.isCompleted}">
+						<span class="item-count">{{item.quantity}}</span>
+						<span>{{item.name}}</span>
+						<span class="controls">
+							<span ng-click="checkItem($index)"><i class="fas fa-check"></i> </span>
+							<span ng-click="removeItem($index)"><i class="fas fa-times"></i></span>
+						</span>
+					</li>
+				</ul>
+			</section>
+		</main>
+		<script src="/app/app.module.js"></script>
+		<script src="/app/controllers/ShoppingList.js"></script>
+	</body>
+</html>

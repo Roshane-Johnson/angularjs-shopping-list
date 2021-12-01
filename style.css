@@ -1,0 +1,108 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	background: linear-gradient(rgba(0 0 0 / 0.3), rgba(0 0 0 / 0.3)), url("https://picsum.photos/1920/1080?random=1");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
+}
+
+body {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+main {
+	width: 50%;
+	margin: auto;
+	margin-top: 3%;
+}
+
+section {
+	padding: 2rem;
+	color: white;
+	border-radius: 0.5rem;
+	background-color: #1a1a1a;
+}
+
+section header {
+	font-size: 1.5rem;
+}
+
+section > header,
+section > div,
+section li:not(:last-of-type) {
+	margin-bottom: 1rem;
+}
+
+.add-controls {
+	display: grid;
+	grid-template: auto / 4fr 1.5fr;
+	gap: 0.5rem;
+}
+
+.add-controls input {
+	padding: 0.7rem;
+	background: #121212;
+	border: 2px solid #232323;
+	border-radius: 0.2rem;
+	color: white;
+}
+
+.add-controls button {
+	border: 0;
+	color: white;
+	border-radius: 0.2rem;
+	background-color: dodgerblue;
+}
+
+.list-item-wrap {
+	--height: 350px;
+	min-height: var(--height);
+	max-height: var(--height);
+	overflow-y: scroll;
+}
+
+.list-item {
+	display: grid;
+	grid-template: 1fr / 1fr 8fr 1.5fr;
+	border-radius: 0.3rem;
+	align-items: center;
+	background-color: #232323;
+	margin-right: 10px;
+}
+
+.list-item.completed {
+	background-color: #1bab44;
+}
+
+.list-item.completed i.fas.fa-check {
+	color: #137e32;
+}
+
+.item-count {
+	padding: 0 1rem;
+}
+
+.list-item.completed .controls span:hover {
+	background-color: #24c451;
+}
+
+.controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.controls span {
+	padding: 1rem;
+}
+
+.controls span:hover {
+	background-color: #363636;
+	border-radius: 0.3rem;
+}
