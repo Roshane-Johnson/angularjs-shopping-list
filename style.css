@@ -10,6 +10,7 @@ html {
 	background-size: cover;
 	background-position: center;
 	min-height: 100vh;
+	backdrop-filter: blur(2px);
 }
 
 body {
@@ -82,6 +83,10 @@ section li:not(:last-of-type) {
 
 .list-item.completed i.fas.fa-check {
 	color: #137e32;
+}
+
+.list-item.list-item.completed .item-name {
+	text-decoration: solid line-through white 2px;
 }
 
 .item-count {
