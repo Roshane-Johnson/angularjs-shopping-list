@@ -14,7 +14,7 @@ function ShoppingListCtrl($scope) {
 		],
 	};
 
-	$scope.list.count = $scope.list.items.length;
+	updateCount();
 
 	$scope.addItem = function (itemName = "") {
 		let itemIndex = $scope.list.items.findIndex((item) => item.name.toLowerCase() == itemName.toLowerCase());
@@ -22,7 +22,7 @@ function ShoppingListCtrl($scope) {
 
 		if (itemNotFound) {
 			$scope.list.items.push({ name: itemName, quantity: 1, isCompleted: false });
-			$scope.list.count = $scope.list.items.length;
+			updateCount();
 		} else {
 			let currentItem = $scope.list.items[itemIndex];
 			currentItem.quantity++;
@@ -43,11 +43,33 @@ function ShoppingListCtrl($scope) {
 
 	$scope.removeItem = function (itemIndex) {
 		$scope.list.items.splice(itemIndex, 1);
-		$scope.list.count = $scope.list.items.length;
+		updateCount();
 	};
 
 	$scope.checkItem = function (itemIndex) {
 		let currentItem = $scope.list.items[itemIndex];
 		currentItem.isCompleted = !currentItem.isCompleted;
 	};
+
+	$scope.clearItems = function () {
+		if ($scope.list.items.length < 1) {
+			Swal.fire({
+				toast: true,
+				position: "bottom-end",
+				showConfirmButton: false,
+				timer: 5_000,
+				timerProgressBar: true,
+				icon: "error",
+				title: "List already cleared",
+			});
+		} else {
+			confirm("Clear shopping list?") ? ($scope.list.items = []) : null;
+		}
+
+		updateCount();
+	};
+
+	function updateCount() {
+		$scope.list.count = $scope.list.items.length;
+	}
 }

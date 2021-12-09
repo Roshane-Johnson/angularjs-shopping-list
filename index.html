@@ -16,7 +16,12 @@
 	<body>
 		<main>
 			<section ng-controller="ShoppingListCtrl">
-				<header>Shopping List - {{list.count}} Items</header>
+				<header>
+					<span>Shopping List - {{list.count}} Items</span>
+					<span>
+						<a href="#!" ng-click="clearItems(list.items)"><i class="fas fa-trash"></i></a>
+					</span>
+				</header>
 				<div class="add-controls">
 					<input type="text" placeholder="Add new item..." ng-model="newItem.name" />
 					<button ng-click="addItem(newItem.name)">Add</button>

@@ -31,7 +31,23 @@ section {
 }
 
 section header {
+	display: flex;
+	justify-content: space-between;
 	font-size: 1.5rem;
+}
+
+section header span:last-of-type {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 0.5rem;
+}
+
+section header span:last-of-type a {
+	text-decoration: none;
+	color: firebrick;
+	font-size: 1rem;
+	font-weight: bold;
 }
 
 section > header,
