@@ -7,6 +7,7 @@ Items are stored temporarily therefore whent page refreshes the entire shopping 
 ### Features
 
 - Create Item
+- Read Items
 - Update Item
 - Delete Item
 
@@ -14,4 +15,4 @@ Items are stored temporarily therefore whent page refreshes the entire shopping 
 
 - <input type="checkbox" disabled/> Store shopping list until session ends
 - <input type="checkbox" disabled/> Read/Store list items in JSON
-- <input type="checkbox" disabled/> Deploy online
+- <input type="checkbox" checked/> Deploy online
